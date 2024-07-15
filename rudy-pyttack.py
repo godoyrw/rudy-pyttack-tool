@@ -178,9 +178,9 @@ def parse_arguments():
 
     """
     parser = argparse.ArgumentParser(
-        prog="rudy",
+        prog="RUDY PyTTACK Tool",
         description=(
-            "RUDY (Are you dead yet?) Denial of Service attack implementation in Python."
+            "RUDY (Are You Dead Yet?), implementação do RUDY ataque de negação de serviço (DoS) em python."
         )
     )
     parser.add_argument("-s", "--sockets", default=150, type=int,
@@ -195,7 +195,7 @@ def parse_arguments():
                         help="Send requests through a SOCKS5 proxy, e.g: 127.0.0.1:1080")
     parser.add_argument("-v", "--verbose", action="store_true",
                         help="Enable verbose output.")
-    parser.add_argument("--version", action="version", version="%(prog)s version 1.1")
+    parser.add_argument("--ver", action="version", version="%(prog)s | version: 1.0.0")
     parser.add_argument("url", help='Absolute path to website, i.e [http[s]://]host[:port][file_path]')
     return parser.parse_args()
 

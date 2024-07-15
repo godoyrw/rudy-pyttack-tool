@@ -1,4 +1,4 @@
-# RUDY PyTTACK Tool
+# RUDY PyTTACK Tool 🐍
 RUDY (Are You Dead Yet?), implementação do RUDY ataque de negação de serviço (DoS) em python.\
 Version: 1.0.0
 
@@ -55,7 +55,7 @@ optional arguments:
   -x PROXY, --proxy PROXY
                         Send requests through a Socks5 proxy, e.g: 127.0.0.1:1080
   -v, --verbose         Give details about actions being performed.
-  --version             show program's version number and exit
+  --ver                 Show version number and exit
 ```
 ## Exemplo de Uso
 ```
