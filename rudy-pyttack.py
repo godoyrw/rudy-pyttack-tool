@@ -310,9 +310,9 @@ def get_accept_language_header():
     """Return a random Accept-Language header."""
     accept_languages = [
         "en-US,en;q=0.5",
-         "zh-CN,zh;q=0.8",
-         "pt-BR,pt,q=0.5",
-         "es-MX,es,q=0.5",
+        "zh-CN,zh;q=0.8",
+        "pt-BR,pt,q=0.5",
+        "es-MX,es,q=0.5"
         # Add more Accept-Language headers as needed
     ]
     return f"Accept-Language: {random.choice(accept_languages)}"
