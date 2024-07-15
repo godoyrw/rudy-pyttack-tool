@@ -2,6 +2,7 @@
 RUDY (Are You Dead Yet?), implementação do RUDY ataque de negação de serviço (DoS) em python.\
 Version: 1.0.0
 
+![alt text](https://github.com/godoyrw/rudy-pyttack-tool/blob/master/assets/img/rudy.jpg)
 
 ## Descrição
 RUDY (Are You Dead Yet?) é uma ferramenta de ataque de negação de serviço (DoS) projetada para explorar e sobrecarregar a capacidade de resposta de servidores web, particularmente aqueles que têm vulnerabilidades relacionadas à forma como lidam com solicitações HTTP. Esse tipo de ataque visa esgotar os recursos do servidor, como a memória e a capacidade de processamento, manipulando a maneira como as solicitações HTTP são geradas e enviadas. O RUDY PyTTACK Tool funciona enviando requisições HTTP de forma lenta e progressiva, interrompendo o processo normal de resposta do servidor e forçando-o a manter conexões abertas por longos períodos. Isso pode levar a uma condição de sobrecarga onde o servidor não consegue atender a novas solicitações legítimas, resultando em um serviço interrompido para os usuários reais.
