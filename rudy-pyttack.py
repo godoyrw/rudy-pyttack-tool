@@ -31,30 +31,118 @@ import sys
 
 
 class Logger:
+    """
+    A class used to log messages with different levels of verbosity.
+
+    Attributes
+    ----------
+    verbose : bool
+        A flag indicating whether to print messages or not.
+
+    Methods
+    -------
+    __init__(self, verbosity=False)
+        Initializes the Logger with the given verbosity level.
+
+    set_verbosity(self, verbosity)
+        Sets the verbosity level of the Logger.
+
+    log(self, message, file=sys.stdout)
+        Prints the given message if verbosity is True.
+
+    warn(self, message, file=sys.stderr)
+        Prints a warning message with the given message.
+
+    error(self, message, file=sys.stderr)
+        Prints an error message with the given message.
+    """
+
     def __init__(self, verbosity=False):
+        """
+        Initializes the Logger with the given verbosity level.
+
+        Parameters
+        ----------
+        verbosity : bool, optional
+            A flag indicating whether to print messages or not. Default is False.
+        """
         self.verbose = verbosity
 
     def set_verbosity(self, verbosity):
+        """
+        Sets the verbosity level of the Logger.
+
+        Parameters
+        ----------
+        verbosity : bool
+            A flag indicating whether to print messages or not.
+        """
         self.verbose = verbosity
 
     def log(self, message, file=sys.stdout):
+        """
+        Prints the given message if verbosity is True.
+
+        Parameters
+        ----------
+        message : str
+            The message to be printed.
+        file : file-like object, optional
+            The file-like object to print the message to. Default is sys.stdout.
+        """
         if self.verbose:
             print(message, file=file)
 
     def warn(self, message, file=sys.stderr):
+        """
+        Prints a warning message with the given message.
+
+        Parameters
+        ----------
+        message : str
+            The warning message to be printed.
+        file : file-like object, optional
+            The file-like object to print the warning message to. Default is sys.stderr.
+        """
         print(f"WARNING: {message}", file=file)
 
     def error(self, message, file=sys.stderr):
+        """
+        Prints an error message with the given message.
+
+        Parameters
+        ----------
+        message : str
+            The error message to be printed.
+        file : file-like object, optional
+            The file-like object to print the error message to. Default is sys.stderr.
+        """
         print(f"ERROR: {message}", file=file)
 
 
 def print_rudy():
+    """
+    Print the name and description of the RUDY PyTTACK tool.
+
+    This function prints a welcome message and a brief description of the RUDY PyTTACK tool.
+    It does not take any parameters and does not return any value.
+    """
     print("RUDY PyTTACK Tool")
     print()
 
-
 def init_socket(host, port, tls=False, timeout=5):
-    """Initialize a socket connection, optionally using TLS."""
+    """
+    Initialize a socket connection, optionally using TLS.
+
+    Parameters:
+    host (str): The host to connect to.
+    port (int): The port number to connect to.
+    tls (bool, optional): Whether to use TLS for the connection. Default is False.
+    timeout (int, optional): The timeout for the connection in seconds. Default is 5.
+
+    Returns:
+    sock (socket): The initialized socket connection.
+    """
     sock = socks.socksocket()
     sock.settimeout(timeout)
     sock.connect((host, port))
@@ -63,16 +151,38 @@ def init_socket(host, port, tls=False, timeout=5):
         sock = ctx.wrap_socket(sock, server_hostname=host)
     return sock
 
-
 def generate_http_req(method, path, headers, version="HTTP/1.1"):
-    """Generate an HTTP request with the given method, path, headers, and version."""
+    """
+    Generate an HTTP request with the given method, path, headers, and version.
+
+    Parameters:
+    method (str): The HTTP method for the request (e.g., GET, POST, PUT, DELETE).
+    path (str): The path for the request.
+    headers (list): A list of strings representing the headers for the request.
+    version (str): The HTTP version for the request (default is "HTTP/1.1").
+
+    Returns:
+    str: The generated HTTP request as a string.
+    """
     http_req = f"{method} {path} {version}\r\n"
     http_req += "\r\n".join(headers) + "\r\n"
     return http_req
 
 
 def parse_arguments():
-    """Parse command-line arguments."""
+    """
+    Parse command-line arguments.
+
+    This function uses argparse module to parse command-line arguments. It defines several optional arguments
+    and a required argument for the target URL.
+
+    Parameters:
+    None
+
+    Returns:
+    argparse.Namespace: An object containing the parsed arguments.
+
+    """
     parser = argparse.ArgumentParser(
         prog="rudy",
         description=(
@@ -215,6 +325,16 @@ def get_accept_language_header():
 
 
 def main():
+    """
+    This function is the main entry point for the HTTP POST flood attack script.
+    It parses command-line arguments, initializes sockets, and sends HTTP POST requests to the target server.
+
+    Parameters:
+    None
+
+    Returns:
+    None
+    """
     try:
         args = parse_arguments()
         url = urllib.parse.urlparse(args.url)
@@ -314,6 +434,9 @@ def main():
         print("\nInterrupted by user.")
 
 
-if __name__ == "__main__":
+if(__name__ == '__main__'):
+    """
+    Entry point of the application.
+    """
     main()
     
