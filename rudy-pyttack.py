@@ -6,18 +6,12 @@ Author         :  Roberto Godoy
 Github         :  https://github.com/godoyrw                    
 Version        :  1.1.0
 
-Description    :  A Denial of Service (DoS) attack in Python.
-                  This attack is known as "slow and low," meaning it generates minimal
-                  traffic but makes each HTTP POST request last about 10 minutes. 
-                  
-                  It works by filling out a form and sending the body of the request one byte at a time, 
-                  waiting several seconds between each byte. This simulates a client with very low bandwidth. 
-                  When executed in a distributed manner, it can exhaust the server's available connections, 
-                  making it impossible for legitimate clients to connect.
+Description    :  RUDY (Are You Dead Yet?) é uma ferramenta de ataque de negação de serviço (DoS) 
+                  projetada para explorar e sobrecarregar a capacidade de resposta de servidores web, 
+                  particularmente aqueles que têm vulnerabilidades relacionadas à forma como lidam com solicitações HTTP.
 
-Disclaimer     :  Please, use this code for educational purposes    
-                  only. I am not responsible for any malicious use  
-                  that may be made of it.                       
+Disclaimer     :  No Brasil, práticas como ataques DoS são consideradas crimes cibernéticos de acordo com a Lei nº 12.737/2012, 
+                  conhecida como Lei Carolina Dieckmann, e outras legislações pertinentes.                    
 """
 import socket
 import socks
